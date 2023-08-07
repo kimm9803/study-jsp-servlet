@@ -10,6 +10,10 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
+  <!--
+  context-param 은 init-param 과 달리 모든 서블릿에서 사용할 수 있는 파라미터 값이다.
+  비유하자면 전역변수이다.
+   -->
   <context-param>
   	<param-name>imgDir</param-name>
   	<param-value>/upload/img</param-value>
@@ -25,7 +29,14 @@
   
   <servlet>
   	<servlet-name>servletEx</servlet-name>
-  	<jsp-file>/jspEx.jsp</jsp-file>
+  	<servlet-class>com.servlet.ServletEx</servlet-class>
+  	<!-- <jsp-file>/jspEx.jsp</jsp-file> -->
+  	
+  	<!-- 
+  	init-param을 통하여 변수명과 값을 넣어서 사용할 수 있다
+    지정해준 서블릿 내에서만 쓸 수 있는 값이다. 
+  	비유하자면 private 지역변수와 유사하다 
+  	-->
   	<init-param>
   		<param-name>adminId</param-name>
   		<param-value>admin</param-value>
@@ -37,6 +48,7 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>servletEx</servlet-name>
-  	<url-pattern>/jspEx.jsp</url-pattern>
+  	<url-pattern>/se</url-pattern>
+  	<!-- <url-pattern>/jspEx.jsp</url-pattern> -->
   </servlet-mapping>
 </web-app>
